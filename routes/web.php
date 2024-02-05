@@ -6,14 +6,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
-// Route::get('/about', function () {
-//     return view('about');
-// });
 Route::get('/about', function () {
     return view('about');
 });
+
+// Route::view('/about', 'about');
+
 Route::get('/about/subpage', function () {
     return view('subpage');
 });
@@ -47,4 +47,10 @@ Route::get('/item/{id?}/{details?}', function (string $id = null, string $detail
     }
 })->whereNumber('id')->whereAlphaNumeric('details');
 
-// Route::view('/about', 'about');
+
+
+//Named Route
+
+Route::get('/about-us', function () {
+    return view('about');
+})->name('about');
