@@ -8,7 +8,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/about', function () {
+Route::get('/test', function () {
     return view('about');
 });
 
@@ -54,3 +54,29 @@ Route::get('/item/{id?}/{details?}', function (string $id = null, string $detail
 Route::get('/about-us', function () {
     return view('about');
 })->name('about');
+
+
+// Redirect
+
+Route::redirect('/about', '/test', 301);
+
+// Route Groups
+
+Route::prefix('page')->group(function () {
+    Route::get('/1', function () {
+        return "<h2>Welcome to Page number 1</h2>";
+    });
+    Route::get('/group', function () {
+        return "<h2>Welcome to Group page</h2>";
+    });
+    Route::get('/sun', function () {
+        return "<h2>Welcome to Sun page</h2>";
+    });
+
+});
+
+// Fallback
+
+Route::fallback(function () {
+    return "<h1>Page not found!</h1>";
+});
