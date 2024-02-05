@@ -28,17 +28,23 @@ Route::get('/about/subpage', function () {
 //     }
 // });
 
+// Route::get('/item/{id?}/{details?}', function (string $id = null, string $details = null) {
+//     if ($id) {
+//         return view('item')->with('id', $id)->with('details', $details);
+//     } else {
+//         return view('item')->with('id', null)->with('details', $details);
+//     }
+// });
+
+// Route constrains
+
+
 Route::get('/item/{id?}/{details?}', function (string $id = null, string $details = null) {
     if ($id) {
         return view('item')->with('id', $id)->with('details', $details);
     } else {
         return view('item')->with('id', null)->with('details', $details);
     }
-});
-
-// Route constrains
-
-
-
+})->whereNumber('id')->whereAlphaNumeric('details');
 
 // Route::view('/about', 'about');
