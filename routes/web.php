@@ -55,6 +55,10 @@ Route::get('/about-us', function () {
     return view('about');
 })->name('about');
 
+Route::get('/posts', function () {
+    return view('post');
+})->name('post');
+
 
 // Redirect
 
@@ -78,5 +82,5 @@ Route::prefix('page')->group(function () {
 // Fallback
 
 Route::fallback(function () {
-    return "<h1>Page not found!</h1>";  
+    return "<h1>Page not found!</h1>";
 });
