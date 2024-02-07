@@ -1,12 +1,22 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
+
+
+// routes/web.php
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+// Route for Home Page
+Route::get('/', [PageController::class, 'showHomePage'])->name('home');
+
+// Route for About Page
+Route::get('/about', [PageController::class, 'showAboutPage'])->name('about');
+
+// Route for Post Page
+Route::get('/post', [PageController::class, 'showPostPage'])->name('post');
+
 
 Route::get('/test', function () {
     return view('about');
@@ -49,15 +59,6 @@ Route::get('/item/{id?}/{details?}', function (string $id = null, string $detail
 
 
 
-//Named Route
-
-Route::get('/about-us', function () {
-    return view('about');
-})->name('about');
-
-Route::get('/posts', function () {
-    return view('post');
-})->name('post');
 
 
 // Redirect

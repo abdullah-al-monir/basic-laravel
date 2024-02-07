@@ -5,4 +5,7 @@
             corporis magni aspernatur aliquid nobis eius adipisci saepe, dolor iusto consectetur error numquam sequi!
             Soluta.</p>
     </article>
-
+   @push('script')
+       <script src="/example.js"></script>
+       <script src="/jquery.js"></script>
+   @endpush
